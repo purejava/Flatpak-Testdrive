@@ -47,6 +47,10 @@ jobs:
         run: |
           echo "flatter.purejava.org" > CNAME
 
+      - name: Replace RUN_ID in index.html
+        run: |
+          sed -i "s/{{RUN_ID}}/${{ github.run_id }}/g" index.html
+
       - name: Build
         uses: andyholmes/flatter@main
         with:
