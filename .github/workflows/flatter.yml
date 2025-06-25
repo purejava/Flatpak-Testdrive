@@ -9,7 +9,7 @@ on:
 jobs:
   flatter:
     name: Flatter
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     container:
       image: ghcr.io/andyholmes/flatter/freedesktop:24.08
       options: --privileged
@@ -17,7 +17,11 @@ jobs:
     # See "Multiple Architectures" below
     strategy:
       matrix:
-        arch: [x86_64, aarch64]
+        include:
+          - arch: x86_64
+            os: ubuntu-latest
+          - arch: aarch64
+            os: ubuntu-24.04-arm
       fail-fast: false
       # Only one job at a time can use the shared repository cache
       max-parallel: 1
