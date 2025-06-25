@@ -9,4 +9,4 @@ Thanks to [Andy Holmes](https://github.com/andyholmes) for providing [Flatter](h
 ## Copyright
 Copyright (C) 2025 Ralph Plawetzki
 
-The Flatpak-Testdrive logo is borrowed from the [Flatpak community](https://flatpak.org/),
+The Flatpak-Testdrive logo is borrowed from the [Flatpak community](https://flatpak.org/).
