@@ -1,7 +1,7 @@
 app-id: org.cryptomator.Cryptomator
 command: cryptomator
 runtime: org.freedesktop.Platform
-runtime-version: '23.08'
+runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
 separate-locales: false
 finish-args:
@@ -12,6 +12,8 @@ finish-args:
   # Allow filesystem access to the user's home dir
   # Needed to manage vaults there
   - --filesystem=home
+  # Reading system certificates
+  - --filesystem=host-etc:ro
   # Allow access to the XDG data directory
   # Needed to connect to KeePassXC's UNIX domain socket
   - --filesystem=xdg-run/org.keepassxc.KeePassXC.BrowserServer
@@ -77,8 +79,8 @@ modules:
         PATH: /app/bin:/usr/bin
         MAVEN_OPTS: -Dmaven.repo.local=.m2/repository
         JAVA_HOME: jdk
-        JMODS_PATH: jmods:${JAVA_HOME}/jmods
-        VERSION: 1.12.3
+        JMODS_PATH: jmods
+        VERSION: 1.17.0
         REVISION_NO: '1'
     build-commands:
       # Setup Java
@@ -89,13 +91,13 @@ modules:
       - mkdir maven
       - tar xf maven.tar.gz --strip-components=1 --exclude=jansi-native --directory=maven
       # Build project
-      - maven/bin/mvn clean package -DskipTests -Plinux
+      - maven/bin/mvn clean package -DskipTests -Plinux -Djavafx.platform=linux
       - cp target/cryptomator-*.jar target/mods
       - cd target
       - $JAVA_HOME/bin/jlink
         --output runtime
         --module-path $JMODS_PATH
-        --add-modules java.base,java.desktop,java.instrument,java.logging,java.naming,java.net.http,java.scripting,java.sql,java.xml,javafx.base,javafx.graphics,javafx.controls,javafx.fxml,jdk.unsupported,jdk.crypto.ec,jdk.security.auth,jdk.accessibility,jdk.management.jfr,jdk.net
+        --add-modules java.base,java.desktop,java.instrument,java.logging,java.naming,java.net.http,java.scripting,java.sql,java.xml,javafx.base,javafx.graphics,javafx.controls,javafx.fxml,jdk.unsupported,jdk.security.auth,jdk.accessibility,jdk.management.jfr,jdk.net,java.compiler
         --no-header-files
         --no-man-pages
         --strip-debug
@@ -109,9 +111,9 @@ modules:
         --dest .
         --name Cryptomator
         --vendor 'Skymatic GmbH'
-        --java-options '--enable-preview'
-        --java-options '--enable-native-access=org.cryptomator.jfuse.linux.amd64,org.cryptomator.jfuse.linux.aarch64,org.purejava.appindicator'
-        --copyright '(C) 2016 - 2024 Skymatic GmbH'
+        --copyright '(C) 2016 - 2025 Skymatic GmbH'
+        --java-options '--enable-native-access=javafx.graphics,org.cryptomator.jfuse.linux.amd64,org.cryptomator.jfuse.linux.aarch64,org.purejava.appindicator'
+        --java-options "--sun-misc-unsafe-memory-access=allow"
         --java-options '-Xss5m'
         --java-options '-Xmx256m'
         --java-options '-Dfile.encoding='utf-8''
@@ -119,12 +121,14 @@ modules:
         --java-options "-Dcryptomator.appVersion='${VERSION}'"
         --java-options "-Dcryptomator.buildNumber='flatpak-${REVISION_NO}'"
         --java-options '-Dcryptomator.ipcSocketPath='@{userhome}/.config/Cryptomator/ipc.socket''
+        --java-options '-Dcryptomator.logDir='@{userhome}/.local/share/Cryptomator/logs''
         --java-options '-Dcryptomator.mountPointsDir='@{userhome}/.local/share/Cryptomator/mnt''
         --java-options '-Dcryptomator.pluginDir='@{userhome}/.local/share/Cryptomator/plugins''
         --java-options '-Dcryptomator.p12Path='@{userhome}/.config/Cryptomator/key.p12''
         --java-options '-Dcryptomator.settingsPath='@{userhome}/.config/Cryptomator/settings.json:~/.Cryptomator/settings.json''
         --java-options '-Dcryptomator.showTrayIcon=true'
         --java-options '-Dcryptomator.disableUpdateCheck=true'
+        --java-options '-Dcryptomator.networking.truststore.p12Path='/run/host/etc/cryptomator/certs.p12''
         --app-version "${VERSION}.${REVISION_NO}"
         --verbose
       - cp -R Cryptomator /app/
@@ -140,33 +144,33 @@ modules:
       - maven-dependencies-x86_64.yaml
       - maven-dependencies-aarch64.yaml
       - type: archive
-        sha512: 55706d6b39ee4046a3c839f5efe908035ab31cf9acff2f6e669a689f46fcbf0ed5b85d28d8499a8e96562a121edc1c2e5935ed73d612643c868319fd65e1fa93 #CRYPTOMATOR - COMMENT REQUIRED FOR AUTOMATION
-        url: https://github.com/cryptomator/cryptomator/archive/refs/tags/1.12.3.tar.gz
+        sha512: 58b4e3136777df5e6b2187d103c25a5aba0525e91fb25309f736d2ead44bab9c53b7d8a7bd60fe853b5193aebb00e71372616e32327832e8e82a768bbe7c8212 #CRYPTOMATOR - COMMENT REQUIRED FOR AUTOMATION
+        url: https://github.com/cryptomator/cryptomator/archive/refs/tags/1.17.0.tar.gz
       - type: file
+        dest-filename: jdk.tar.gz
         only-arches:
           - x86_64
-        url: https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.2%2B13/OpenJDK21U-jdk_x64_linux_hotspot_21.0.2_13.tar.gz
-        sha512: 691ec4d447933c59696944cdb5d5de86fc1332b2c730dc6624f546c0d30456cb3583d53f38d7531f69195e807092c1d03d923d73d5e6883185cae935db1ed7ce
-        dest-filename: jdk.tar.gz
+        url: https://github.com/adoptium/temurin24-binaries/releases/download/jdk-24.0.1%2B9/OpenJDK24U-jdk_x64_linux_hotspot_24.0.1_9.tar.gz
+        sha512: c321f009548ff5079e3faeff29bfb7becf39d62fa1469e60b48dbb81067713888cef6236353113338b7d2b581c2ce64ecbc0f67146b299f31ba6c24cd65cd2d7
       - type: file
+        dest-filename: jdk.tar.gz
         only-arches:
           - aarch64
-        url: https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.2%2B13/OpenJDK21U-jdk_aarch64_linux_hotspot_21.0.2_13.tar.gz
-        sha512: a41a31915ea64cbdae4e9b81057df579d8456a5ca5e224497e862dbb207275f9d84dd91d9c9cce4d81b03d21d3d4305e3276d064ec1e32b6d1f272f157c82f56
-        dest-filename: jdk.tar.gz
+        url: https://github.com/adoptium/temurin24-binaries/releases/download/jdk-24.0.1%2B9/OpenJDK24U-jdk_aarch64_linux_hotspot_24.0.1_9.tar.gz
+        sha512: 2dcbb59b295ec72dfbc082d0bb70c92dc227bc50ebe45187d9503094e3ced15197fad232c3bd2d57312f1ba040c9a0ce3c4398e4c014cfedbb5eee366b594a79
       - type: file
+        dest-filename: openjfx.zip
         only-arches:
           - x86_64
-        url: https://download2.gluonhq.com/openjfx/21.0.1/openjfx-21.0.1_linux-x64_bin-jmods.zip
-        sha512: c7e66bf19bd78cdb007d60fa51e4b7da36687bac49bc33493802a1d8d4f45c253f2faae0b5387f77d9421711a8cb9e011f1b65393d7843366797819013e720bf
-        dest-filename: openjfx.zip
+        url: https://download2.gluonhq.com/openjfx/24.0.1/openjfx-24.0.1_linux-x64_bin-jmods.zip
+        sha512: 727b037bf1cb6d3e1aba92395709eb90893f9c33c5b91d7f091d934ac8eaed23b243d781fd4839fe59adf11aac7d7942679a318c5c695770d4751afe6cf76ab6
       - type: file
+        dest-filename: openjfx.zip
         only-arches:
           - aarch64
-        url: https://download2.gluonhq.com/openjfx/21.0.1/openjfx-21.0.1_linux-aarch64_bin-jmods.zip
-        sha512: f1f4877586a0dd7ef06b0a07c013a609df5c527c06864cac854a6af634594f9b8736623e78626b966c9d99ed6376a4130de03f80af834a25e16ddbebf4de5cc5
-        dest-filename: openjfx.zip
+        url: https://download2.gluonhq.com/openjfx/24.0.1/openjfx-24.0.1_linux-aarch64_bin-jmods.zip
+        sha512: 330bc3e64f260c687ece19c60095d10bbe3ce2dea6cd67a1e48a972b71c341ffe79a750332918d567393b4f1eede89cd552c144ad39fadcb40d23d1ff9acb79a
       - type: file
-        url: https://dlcdn.apache.org/maven/maven-3/3.9.5/binaries/apache-maven-3.9.5-bin.tar.gz
-        sha512: 4810523ba025104106567d8a15a8aa19db35068c8c8be19e30b219a1d7e83bcab96124bf86dc424b1cd3c5edba25d69ec0b31751c136f88975d15406cab3842b
         dest-filename: maven.tar.gz
+        url: https://dlcdn.apache.org/maven/maven-3/3.9.10/binaries/apache-maven-3.9.10-bin.tar.gz
+        sha512: 4ef617e421695192a3e9a53b3530d803baf31f4269b26f9ab6863452d833da5530a4d04ed08c36490ad0f141b55304bceed58dbf44821153d94ae9abf34d0e1b
