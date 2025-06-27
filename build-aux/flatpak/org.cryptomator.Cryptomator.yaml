@@ -80,7 +80,7 @@ modules:
         MAVEN_OPTS: -Dmaven.repo.local=.m2/repository
         JAVA_HOME: jdk
         JMODS_PATH: jmods
-        VERSION: 1.17.0
+        VERSION: 1.17.1
         REVISION_NO: '1'
     build-commands:
       # Setup Java
@@ -127,7 +127,7 @@ modules:
         --java-options '-Dcryptomator.p12Path='@{userhome}/.config/Cryptomator/key.p12''
         --java-options '-Dcryptomator.settingsPath='@{userhome}/.config/Cryptomator/settings.json:~/.Cryptomator/settings.json''
         --java-options '-Dcryptomator.showTrayIcon=true'
-        --java-options '-Dcryptomator.disableUpdateCheck=true'
+        --java-options '-Dcryptomator.disableUpdateCheck=false'
         --java-options '-Dcryptomator.networking.truststore.p12Path='/run/host/etc/cryptomator/certs.p12''
         --app-version "${VERSION}.${REVISION_NO}"
         --verbose
@@ -143,9 +143,33 @@ modules:
       - maven-dependencies.yaml
       - maven-dependencies-x86_64.yaml
       - maven-dependencies-aarch64.yaml
+      - type: file
+        path: ./integrations-api/1.7.0-SNAPSHOT/integrations-api-1.7.0-SNAPSHOT.jar
+        dest: .m2/repository/org/cryptomator/integrations-api/1.7.0-SNAPSHOT
+        sha1: 153b4cc506d5f07f3cdc5151f5a7d0adf83cb219
+      - type: file
+        path: ./integrations-linux/1.7.0-SNAPSHOT/integrations-linux-1.7.0-SNAPSHOT.jar
+        dest: .m2/repository/org/cryptomator/integrations-linux/1.7.0-SNAPSHOT
+        sha1: fa96012ea35b7f768ed6ea453f9e8484d0ab6e7d
+      - type: file
+        path: ./flatpak-update-portal/1.0-SNAPSHOT/flatpak-update-portal-1.0-SNAPSHOT.jar
+        dest: .m2/repository/org/purejava/flatpak-update-portal/1.0-SNAPSHOT
+        sha1: f911f267a07a3521e7222171fc19a93b701fef0f
+      - type: file
+        path: ./integrations-api/1.7.0-SNAPSHOT/integrations-api-1.7.0-SNAPSHOT.pom
+        dest: .m2/repository/org/cryptomator/integrations-api/1.7.0-SNAPSHOT
+        sha1: 2c7cc55298f3a1979b51c3787d5d67ac63721731
+      - type: file
+        path: ./integrations-linux/1.7.0-SNAPSHOT/integrations-linux-1.7.0-SNAPSHOT.pom
+        dest: .m2/repository/org/cryptomator/integrations-linux/1.7.0-SNAPSHOT
+        sha1: 8c76496bf41daca3e2234a80dea69a79904e8fdf
+      - type: file
+        path: ./flatpak-update-portal/1.0-SNAPSHOT/flatpak-update-portal-1.0-SNAPSHOT.pom
+        dest: .m2/repository/org/purejava/flatpak-update-portal/1.0-SNAPSHOT
+        sha1: 6bce2db86662e5ea3c2168a9f8b357e9a7d10b64
       - type: archive
-        sha512: 58b4e3136777df5e6b2187d103c25a5aba0525e91fb25309f736d2ead44bab9c53b7d8a7bd60fe853b5193aebb00e71372616e32327832e8e82a768bbe7c8212 #CRYPTOMATOR - COMMENT REQUIRED FOR AUTOMATION
-        url: https://github.com/cryptomator/cryptomator/archive/refs/tags/1.17.0.tar.gz
+        sha512: 49fdf8af49f62b60c55144d9e3fba4b738a24d9affa1430eff01079054702f123ff70bff69a6b588d603f425eed1f1d2791504007a3fcd53ae31f59b780bbb6d #CRYPTOMATOR - COMMENT REQUIRED FOR AUTOMATION
+        path: cryptomator-1.17.1.tar.gz
       - type: file
         dest-filename: jdk.tar.gz
         only-arches:

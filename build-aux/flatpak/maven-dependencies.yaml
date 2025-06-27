@@ -203,6 +203,26 @@
   url: https://repo.maven.apache.org/maven2/com/github/hypfvieh/dbus-java-transport-native-unixsocket/4.3.1/dbus-java-transport-native-unixsocket-4.3.1.pom
   sha1: d1efd1266d6a782652502965333720f0ba7fa150
 - type: file
+  dest: .m2/repository/com/github/hypfvieh/dbus-java-core/5.1.1
+  url: https://repo.maven.apache.org/maven2/com/github/hypfvieh/dbus-java-core/5.1.1/dbus-java-core-5.1.1.jar
+  sha1: 36af749ddaefd567bd4e8a41c24845a584ce76d9
+- type: file
+  dest: .m2/repository/com/github/hypfvieh/dbus-java-core/5.1.1
+  url: https://repo.maven.apache.org/maven2/com/github/hypfvieh/dbus-java-core/5.1.1/dbus-java-core-5.1.1.pom
+  sha1: a2b3efa45357fbbc2535926ffd6b4f15a7f1df7d
+- type: file
+  dest: .m2/repository/com/github/hypfvieh/dbus-java-parent/5.1.1
+  url: https://repo.maven.apache.org/maven2/com/github/hypfvieh/dbus-java-parent/5.1.1/dbus-java-parent-5.1.1.pom
+  sha1: c14b9fa118e7e7166225991a3e91523d536912eb
+- type: file
+  dest: .m2/repository/com/github/hypfvieh/dbus-java-transport-native-unixsocket/5.1.1
+  url: https://repo.maven.apache.org/maven2/com/github/hypfvieh/dbus-java-transport-native-unixsocket/5.1.1/dbus-java-transport-native-unixsocket-5.1.1.jar
+  sha1: 40db43e95df145299a9dc97f611c8a4e1f7477a3
+- type: file
+  dest: .m2/repository/com/github/hypfvieh/dbus-java-transport-native-unixsocket/5.1.1
+  url: https://repo.maven.apache.org/maven2/com/github/hypfvieh/dbus-java-transport-native-unixsocket/5.1.1/dbus-java-transport-native-unixsocket-5.1.1.pom
+  sha1: 3cabc6e8e1aec1d9138c1cfa50371b9d7815e9b5
+- type: file
   dest: .m2/repository/com/github/luben/zstd-jni/1.5.5-11
   url: https://repo.maven.apache.org/maven2/com/github/luben/zstd-jni/1.5.5-11/zstd-jni-1.5.5-11.jar
   sha1: ca6ab366315e179dd80645aad4a60bab959c6523
