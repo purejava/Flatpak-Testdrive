@@ -145,7 +145,7 @@ modules:
       - maven-dependencies-aarch64.yaml
       - type: archive
         sha512: 58b4e3136777df5e6b2187d103c25a5aba0525e91fb25309f736d2ead44bab9c53b7d8a7bd60fe853b5193aebb00e71372616e32327832e8e82a768bbe7c8212 #CRYPTOMATOR - COMMENT REQUIRED FOR AUTOMATION
-        url: https://github.com/cryptomator/cryptomator/archive/refs/tags/1.17.0.tar.gz
+        path: cryptomator-1.17.0.tar.gz
       - type: file
         dest-filename: jdk.tar.gz
         only-arches:
