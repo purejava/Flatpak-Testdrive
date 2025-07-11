@@ -10,7 +10,7 @@
   },
   "createdBy": {
     "gradle": {
-      "version": "8.14.2"
+      "version": "8.14.3"
     }
   },
   "variants": [
@@ -25,6 +25,13 @@
       },
       "dependencies": [
         {
+          "group": "com.fasterxml.jackson.core",
+          "module": "jackson-databind",
+          "version": {
+            "requires": "2.19.1"
+          }
+        },
+        {
           "group": "com.github.hypfvieh",
           "module": "dbus-java-core",
           "version": {
@@ -50,11 +57,11 @@
         {
           "name": "flatpak-update-portal-1.0-SNAPSHOT.jar",
           "url": "flatpak-update-portal-1.0-SNAPSHOT.jar",
-          "size": 14107,
-          "sha512": "7d489d4cbb778fa0ceeb9d9ccd5cbf37e2cf9dc12e2cfb80202b924ca8a946792e3939027a56f5acf1332b2dd8b2a837e4eec212c7c5509e83e961ccefc34746",
-          "sha256": "fc8402d7c6ccdd7e62e002bb7c5dcd4ec858adca062d160f24f80db5ed88b20d",
-          "sha1": "f911f267a07a3521e7222171fc19a93b701fef0f",
-          "md5": "457acbf226b843af9ddf9877313e937d"
+          "size": 18718,
+          "sha512": "5a39067a9bab2fd1cf74e6427f80514bc94dc7bb86b8d8a9c35051d6b2ef220f5774827cb96eaed4410c4508ea9a02b376b7b627f789fd9f673a694c4da232ff",
+          "sha256": "4204f87076d513bc68e3ad8f326e6d399ed09c863b5f31ae606b297161737fbc",
+          "sha1": "58feb720c3d55ad6e8ac88eee87ba1ef880cb72e",
+          "md5": "896c0019efdc5897716dc66cbaac53a4"
         }
       ]
     },
@@ -69,6 +76,13 @@
       },
       "dependencies": [
         {
+          "group": "com.fasterxml.jackson.core",
+          "module": "jackson-databind",
+          "version": {
+            "requires": "2.19.1"
+          }
+        },
+        {
           "group": "com.github.hypfvieh",
           "module": "dbus-java-core",
           "version": {
@@ -94,11 +108,11 @@
         {
           "name": "flatpak-update-portal-1.0-SNAPSHOT.jar",
           "url": "flatpak-update-portal-1.0-SNAPSHOT.jar",
-          "size": 14107,
-          "sha512": "7d489d4cbb778fa0ceeb9d9ccd5cbf37e2cf9dc12e2cfb80202b924ca8a946792e3939027a56f5acf1332b2dd8b2a837e4eec212c7c5509e83e961ccefc34746",
-          "sha256": "fc8402d7c6ccdd7e62e002bb7c5dcd4ec858adca062d160f24f80db5ed88b20d",
-          "sha1": "f911f267a07a3521e7222171fc19a93b701fef0f",
-          "md5": "457acbf226b843af9ddf9877313e937d"
+          "size": 18718,
+          "sha512": "5a39067a9bab2fd1cf74e6427f80514bc94dc7bb86b8d8a9c35051d6b2ef220f5774827cb96eaed4410c4508ea9a02b376b7b627f789fd9f673a694c4da232ff",
+          "sha256": "4204f87076d513bc68e3ad8f326e6d399ed09c863b5f31ae606b297161737fbc",
+          "sha1": "58feb720c3d55ad6e8ac88eee87ba1ef880cb72e",
+          "md5": "896c0019efdc5897716dc66cbaac53a4"
         }
       ]
     },
@@ -114,11 +128,11 @@
         {
           "name": "flatpak-update-portal-1.0-SNAPSHOT-sources.jar",
           "url": "flatpak-update-portal-1.0-SNAPSHOT-sources.jar",
-          "size": 7956,
-          "sha512": "6231f2628e1bc91814425057323dd72f906d9195804af9297a27e604e4f33fcdf44d8a79c02325ed1d0b22ef080aacba223e2584990ea478cb200234c499e82b",
-          "sha256": "ac5fc5bad358b91bd27e7e722fd6128cc92895e9023893914c7909fdb983fba0",
-          "sha1": "9d53145fee7d5246ac4808d7365277f577441b36",
-          "md5": "83bb98f771276a219138aa8480fb2b7e"
+          "size": 9755,
+          "sha512": "6bd3134ccb01045efe68fc46aedf1b18240ad13fa99b8541efe78b892617fbaaeff828cb177bfd192c397548b56e8f1eced2c57bc6d0f104715dc811e435ec0b",
+          "sha256": "80f01440bf7c311b465cb51aef9bc6897b84ddde7f3090d4aea88908307d237e",
+          "sha1": "c1030eb73644c70d14dfc4ee3315149e662844e6",
+          "md5": "9c3d4768ea683aafcd526ce8e428fd52"
         }
       ]
     },
@@ -134,11 +148,11 @@
         {
           "name": "flatpak-update-portal-1.0-SNAPSHOT-javadoc.jar",
           "url": "flatpak-update-portal-1.0-SNAPSHOT-javadoc.jar",
-          "size": 4181337,
-          "sha512": "41b7da92531c88ead1593710b86306f1bc0c51bb0eb21ace1e8ac60458c8b674768f829bf9ea68f2eed0aa03df5f833794d03a21919bc58a2aef123a1580827d",
-          "sha256": "410ac3431865a300ee54e72720e01fc812a4c33d1b234e7c796cae24f269559e",
-          "sha1": "7a8cf3b285d988b958c174e50fbdcc0c9a62b892",
-          "md5": "c5d1a183fc1248f0bd6471467310efb6"
+          "size": 4190727,
+          "sha512": "8e7aa7a145c358674c240f87f910efcdbf665478eaaf57066cb1f6155f601f2765056e844d3a08fd4aba23029ea0d53d2546b4b50349f551c906aa4152362588",
+          "sha256": "e25e3ae778f7f433b316cb4a7d7fc1f390273e1deb56b35d5a9b17e5ceab2064",
+          "sha1": "d95fd969e4420aef2708c1b9b102b21091bb9a2f",
+          "md5": "8ca4d3264c2e7c4d6852ddaebc0c812a"
         }
       ]
     }
