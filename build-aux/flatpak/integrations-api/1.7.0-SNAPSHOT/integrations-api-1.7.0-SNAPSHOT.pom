@@ -94,8 +94,6 @@
 				<version>${mvn-compiler.version}</version>
 				<configuration>
 					<release>${jdk.version}</release>
-					<source>9</source>
-					<target>9</target>
 				</configuration>
 			</plugin>
 			<plugin>

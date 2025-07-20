@@ -57,11 +57,11 @@
         {
           "name": "flatpak-update-portal-1.0-SNAPSHOT.jar",
           "url": "flatpak-update-portal-1.0-SNAPSHOT.jar",
-          "size": 18718,
-          "sha512": "5a39067a9bab2fd1cf74e6427f80514bc94dc7bb86b8d8a9c35051d6b2ef220f5774827cb96eaed4410c4508ea9a02b376b7b627f789fd9f673a694c4da232ff",
-          "sha256": "4204f87076d513bc68e3ad8f326e6d399ed09c863b5f31ae606b297161737fbc",
-          "sha1": "58feb720c3d55ad6e8ac88eee87ba1ef880cb72e",
-          "md5": "896c0019efdc5897716dc66cbaac53a4"
+          "size": 19800,
+          "sha512": "196d8abfa0d15a62b59ca42998a1ec476e9fd20d3898c66665889177c9de4fc3eb43fc1046ad9fc859d7a582bc9686ab5196b3e837013c3921fea7d46de41861",
+          "sha256": "e84883e4712a7643e36e7cf37915660e8437aeacd4919fc2976eeb583aab240f",
+          "sha1": "3598676725286b72d3823600d4e9950b810cc177",
+          "md5": "47287e36133ac0630eabd093cc268e18"
         }
       ]
     },
@@ -108,11 +108,11 @@
         {
           "name": "flatpak-update-portal-1.0-SNAPSHOT.jar",
           "url": "flatpak-update-portal-1.0-SNAPSHOT.jar",
-          "size": 18718,
-          "sha512": "5a39067a9bab2fd1cf74e6427f80514bc94dc7bb86b8d8a9c35051d6b2ef220f5774827cb96eaed4410c4508ea9a02b376b7b627f789fd9f673a694c4da232ff",
-          "sha256": "4204f87076d513bc68e3ad8f326e6d399ed09c863b5f31ae606b297161737fbc",
-          "sha1": "58feb720c3d55ad6e8ac88eee87ba1ef880cb72e",
-          "md5": "896c0019efdc5897716dc66cbaac53a4"
+          "size": 19800,
+          "sha512": "196d8abfa0d15a62b59ca42998a1ec476e9fd20d3898c66665889177c9de4fc3eb43fc1046ad9fc859d7a582bc9686ab5196b3e837013c3921fea7d46de41861",
+          "sha256": "e84883e4712a7643e36e7cf37915660e8437aeacd4919fc2976eeb583aab240f",
+          "sha1": "3598676725286b72d3823600d4e9950b810cc177",
+          "md5": "47287e36133ac0630eabd093cc268e18"
         }
       ]
     },
@@ -128,11 +128,11 @@
         {
           "name": "flatpak-update-portal-1.0-SNAPSHOT-sources.jar",
           "url": "flatpak-update-portal-1.0-SNAPSHOT-sources.jar",
-          "size": 9755,
-          "sha512": "6bd3134ccb01045efe68fc46aedf1b18240ad13fa99b8541efe78b892617fbaaeff828cb177bfd192c397548b56e8f1eced2c57bc6d0f104715dc811e435ec0b",
-          "sha256": "80f01440bf7c311b465cb51aef9bc6897b84ddde7f3090d4aea88908307d237e",
-          "sha1": "c1030eb73644c70d14dfc4ee3315149e662844e6",
-          "md5": "9c3d4768ea683aafcd526ce8e428fd52"
+          "size": 10326,
+          "sha512": "d3884be647b81aee46bff9751ac7872c581fec3c82d61c3a7311b67aceca22de63c71e5a7a027fd297ac7cb51e30e2d21c3e70a9399553dec0b93aec279582b9",
+          "sha256": "664dd077cc9f5951c613d4dda3046817c011dd1f4cfc887762d755244903d493",
+          "sha1": "7fc81ec2935c17f6995d6ab006295880691e3616",
+          "md5": "d10d817cae0dbb268c062859d12ea6a9"
         }
       ]
     },
@@ -148,11 +148,11 @@
         {
           "name": "flatpak-update-portal-1.0-SNAPSHOT-javadoc.jar",
           "url": "flatpak-update-portal-1.0-SNAPSHOT-javadoc.jar",
-          "size": 4190727,
-          "sha512": "8e7aa7a145c358674c240f87f910efcdbf665478eaaf57066cb1f6155f601f2765056e844d3a08fd4aba23029ea0d53d2546b4b50349f551c906aa4152362588",
-          "sha256": "e25e3ae778f7f433b316cb4a7d7fc1f390273e1deb56b35d5a9b17e5ceab2064",
-          "sha1": "d95fd969e4420aef2708c1b9b102b21091bb9a2f",
-          "md5": "8ca4d3264c2e7c4d6852ddaebc0c812a"
+          "size": 4191682,
+          "sha512": "03829b0d9f415a22c49200634eef18c51797a05567e7eea81961e7886fcf9f5c8faa67dff0bee1f6e1b5c80457057cd39f4db75b9068373d172c4b43705c59eb",
+          "sha256": "f66799a88f759e5fbbb505ba7a011a2743f8de1476f8076ff4e876c9e2892c63",
+          "sha1": "0fcb69b2c87c229fde6feba2230d9489cfa1a356",
+          "md5": "ce7a0991f5f16807e406631a1f78227e"
         }
       ]
     }
