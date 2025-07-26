@@ -80,7 +80,7 @@ modules:
         MAVEN_OPTS: -Dmaven.repo.local=.m2/repository
         JAVA_HOME: jdk
         JMODS_PATH: jmods
-        VERSION: 1.17.1
+        VERSION: 1.17.0
         REVISION_NO: '1'
     build-commands:
       # Setup Java
@@ -146,15 +146,15 @@ modules:
       - type: file
         path: ./integrations-api/1.7.0-SNAPSHOT/integrations-api-1.7.0-SNAPSHOT.jar
         dest: .m2/repository/org/cryptomator/integrations-api/1.7.0-SNAPSHOT
-        sha1: 025e12ad47b4b23be2591869b54de12140b9f3cf
+        sha1: 1550a0a93c5e60017a1e38bd23476cbcfcfa6dde
       - type: file
         path: ./integrations-linux/1.7.0-SNAPSHOT/integrations-linux-1.7.0-SNAPSHOT.jar
         dest: .m2/repository/org/cryptomator/integrations-linux/1.7.0-SNAPSHOT
-        sha1: ad97f5156cd45f526f45dcb2d7e8428af0320030
+        sha1: dca71463fb37ecdd23b9fe518a66f8a1c097c6ff
       - type: file
         path: ./flatpak-update-portal/1.0-SNAPSHOT/flatpak-update-portal-1.0-SNAPSHOT.jar
         dest: .m2/repository/org/purejava/flatpak-update-portal/1.0-SNAPSHOT
-        sha1: 3598676725286b72d3823600d4e9950b810cc177
+        sha1: 647814b9b1c829d27081ba06dd3924c75dd283db
       - type: file
         path: ./integrations-api/1.7.0-SNAPSHOT/integrations-api-1.7.0-SNAPSHOT.pom
         dest: .m2/repository/org/cryptomator/integrations-api/1.7.0-SNAPSHOT
@@ -168,8 +168,8 @@ modules:
         dest: .m2/repository/org/purejava/flatpak-update-portal/1.0-SNAPSHOT
         sha1: 830c6e95ba4bd2550fa98c94718a2b54cc99fc60
       - type: archive
-        sha512: 86882c4b65d778e4b7ff7ad2b79c3596bc48ac7e649c13a95f769f330b70b7bc272955dc123badef86e3314070c84ff775c0d327d90643365c91a201adafd4f2 #CRYPTOMATOR - COMMENT REQUIRED FOR AUTOMATION
-        path: cryptomator-1.17.1.tar.gz
+        sha512: 37a4905349a85920354e858e776df5ea512363a8392bc3f8e4b3e0cb9113241c00738bef7a08d657b33005aaead9901f3326874bbb0a77f0c61981769d68e7f9 #CRYPTOMATOR - COMMENT REQUIRED FOR AUTOMATION
+        path: cryptomator-1.17.0.tar.gz
       - type: file
         dest-filename: jdk.tar.gz
         only-arches:
