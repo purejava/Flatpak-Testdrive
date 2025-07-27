@@ -80,7 +80,7 @@ modules:
         MAVEN_OPTS: -Dmaven.repo.local=.m2/repository
         JAVA_HOME: jdk
         JMODS_PATH: jmods
-        VERSION: 1.17.1
+        VERSION: 1.17.0
         REVISION_NO: '1'
     build-commands:
       # Setup Java
@@ -150,7 +150,7 @@ modules:
       - type: file
         path: ./integrations-linux/1.7.0-SNAPSHOT/integrations-linux-1.7.0-SNAPSHOT.jar
         dest: .m2/repository/org/cryptomator/integrations-linux/1.7.0-SNAPSHOT
-        sha1: dca71463fb37ecdd23b9fe518a66f8a1c097c6ff
+        sha1: 76dd772c13610a595d9faaede32f9d4510a2f8d4
       - type: file
         path: ./flatpak-update-portal/1.0-SNAPSHOT/flatpak-update-portal-1.0-SNAPSHOT.jar
         dest: .m2/repository/org/purejava/flatpak-update-portal/1.0-SNAPSHOT
@@ -168,8 +168,8 @@ modules:
         dest: .m2/repository/org/purejava/flatpak-update-portal/1.0-SNAPSHOT
         sha1: 830c6e95ba4bd2550fa98c94718a2b54cc99fc60
       - type: archive
-        sha512: 1beabfb680b2c2608a441c9516d84619ffa44b6fc96cc18ec0b541a4a15e085172b860015388361cfe724e07f819ddc992c02ea2ebde2fc702cb96fb5751d38d #CRYPTOMATOR - COMMENT REQUIRED FOR AUTOMATION
-        path: cryptomator-1.17.1.tar.gz
+        sha512: cd9e53a283eda9aef27f5749c0a4a6b619196f1d4358342b348d8bcf88a7fe0f3ef15135d98f96b8ca55a30043c35bbadab78151fbba5c04b08c7d4eb74832ab #CRYPTOMATOR - COMMENT REQUIRED FOR AUTOMATION
+        path: cryptomator-1.17.0.tar.gz
       - type: file
         dest-filename: jdk.tar.gz
         only-arches:
