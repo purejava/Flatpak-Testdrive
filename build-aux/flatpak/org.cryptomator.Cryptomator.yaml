@@ -80,7 +80,7 @@ modules:
         MAVEN_OPTS: -Dmaven.repo.local=.m2/repository
         JAVA_HOME: jdk
         JMODS_PATH: jmods
-        VERSION: 1.17.0
+        VERSION: 1.17.1
         REVISION_NO: '1'
     build-commands:
       # Setup Java
@@ -168,8 +168,8 @@ modules:
         dest: .m2/repository/org/purejava/flatpak-update-portal/1.0-SNAPSHOT
         sha1: 830c6e95ba4bd2550fa98c94718a2b54cc99fc60
       - type: archive
-        sha512: da3f47c9d28a01ee79d54ff4830171408bde2f7ac45ed26be527215ec6d435b668d8ea52fa3aedcb9e798b57dfb716e557a8854254ba3897a08dcc0c8924eb18 #CRYPTOMATOR - COMMENT REQUIRED FOR AUTOMATION
-        path: cryptomator-1.17.0.tar.gz
+        sha512: 8c1f43cb3374aec963e79ae7f6028d0b6d1b398a61795042203399ddd04a9b489e1c8d817e52debf5881619c2b632adc0dc51e3f71f93db2767eb97b3b2ce490 #CRYPTOMATOR - COMMENT REQUIRED FOR AUTOMATION
+        path: cryptomator-1.17.1.tar.gz
       - type: file
         dest-filename: jdk.tar.gz
         only-arches:
