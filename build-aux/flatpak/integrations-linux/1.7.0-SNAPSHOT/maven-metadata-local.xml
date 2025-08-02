@@ -3,7 +3,7 @@
   <groupId>org.cryptomator</groupId>
   <artifactId>integrations-linux</artifactId>
   <versioning>
-    <lastUpdated>20250730173125</lastUpdated>
+    <lastUpdated>20250802091009</lastUpdated>
     <snapshot>
       <localCopy>true</localCopy>
     </snapshot>
@@ -11,24 +11,24 @@
       <snapshotVersion>
         <extension>pom</extension>
         <value>1.7.0-SNAPSHOT</value>
-        <updated>20250730173125</updated>
+        <updated>20250802091009</updated>
       </snapshotVersion>
       <snapshotVersion>
         <extension>jar</extension>
         <value>1.7.0-SNAPSHOT</value>
-        <updated>20250730173125</updated>
+        <updated>20250802091009</updated>
       </snapshotVersion>
       <snapshotVersion>
         <classifier>sources</classifier>
         <extension>jar</extension>
         <value>1.7.0-SNAPSHOT</value>
-        <updated>20250730173125</updated>
+        <updated>20250802091009</updated>
       </snapshotVersion>
       <snapshotVersion>
         <classifier>javadoc</classifier>
         <extension>jar</extension>
         <value>1.7.0-SNAPSHOT</value>
-        <updated>20250730173125</updated>
+        <updated>20250802091009</updated>
       </snapshotVersion>
     </snapshotVersions>
   </versioning>

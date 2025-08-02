@@ -80,7 +80,7 @@ modules:
         MAVEN_OPTS: -Dmaven.repo.local=.m2/repository
         JAVA_HOME: jdk
         JMODS_PATH: jmods
-        VERSION: 1.17.1
+        VERSION: 1.17.0
         REVISION_NO: '1'
     build-commands:
       # Setup Java
@@ -146,15 +146,15 @@ modules:
       - type: file
         path: ./integrations-api/1.7.0-SNAPSHOT/integrations-api-1.7.0-SNAPSHOT.jar
         dest: .m2/repository/org/cryptomator/integrations-api/1.7.0-SNAPSHOT
-        sha1: c1163008f995c18670c6aec2182a53451e2557a8
+        sha1: 0e4ea343763d9fe56241bc791a560db494e45d3e
       - type: file
         path: ./integrations-linux/1.7.0-SNAPSHOT/integrations-linux-1.7.0-SNAPSHOT.jar
         dest: .m2/repository/org/cryptomator/integrations-linux/1.7.0-SNAPSHOT
-        sha1: ecce8fcb8387816095f33c3bea06c5a9c5bec4f3
+        sha1: 7aab84960ef1d291fa216cd3b2a4496835a20fae
       - type: file
         path: ./flatpak-update-portal/1.0.0/flatpak-update-portal-1.0.0.jar
         dest: .m2/repository/org/purejava/flatpak-update-portal/1.0.0
-        sha1: 473cf56b37866e69b8d7059117e698e3c6133d0f
+        sha1: 488494432accb234b5d94338dbe9e983865db8b2
       - type: file
         path: ./integrations-api/1.7.0-SNAPSHOT/integrations-api-1.7.0-SNAPSHOT.pom
         dest: .m2/repository/org/cryptomator/integrations-api/1.7.0-SNAPSHOT
@@ -166,10 +166,10 @@ modules:
       - type: file
         path: ./flatpak-update-portal/1.0.0/flatpak-update-portal-1.0.0.pom
         dest: .m2/repository/org/purejava/flatpak-update-portal/1.0.0
-        sha1: 67373823ca4028253fc3f6cd5ecdcc32c5ea3874
+        sha1: 5f4d523ab58562e56748e7c45f6b3e0d07286689
       - type: archive
-        sha512: ae3985eb215256e5cbe04597c503a63babd75bed2ad308929814b75aeb866ad32b0685b378414ce7b9ef8000442c2c597763338b6ce60573ee4d6ae919a62091   #CRYPTOMATOR - COMMENT REQUIRED FOR AUTOMATION
-        path: cryptomator-1.17.1.tar.gz
+        sha512: b86d0662f7fd53803f885a4f6e7a7544a2eb156c46bbbb83d01c3b9c8bd6066d7eb0fa6add678dbf8ee739e1fc3156168b19b14178c238e524d5bda20ccdb6b6   #CRYPTOMATOR - COMMENT REQUIRED FOR AUTOMATION
+        path: cryptomator-1.17.0.tar.gz
       - type: file
         dest-filename: jdk.tar.gz
         only-arches:
