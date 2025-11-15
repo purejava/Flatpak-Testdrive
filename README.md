@@ -23,6 +23,8 @@ Now you have a version of Cryptomator, that can be pushed to `main`. After being
 
 You can then push another Cryptomator version (with a different version number) to the Flapak Hub to test the update mechanism.
 
+To clear the Flatpak Hub, delete the caches in the Flatpak-Testdrive repo under Actions > Caches.
+
 Further hints can be found [here](https://github.com/cryptomator/cryptomator/pull/3948).
 
 ## Thank you
