@@ -1,0 +1,6 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat Nov 15 10:36:13 CET 2025
+integrations-api-1.8.0-SNAPSHOT-javadoc.jar>=
+integrations-api-1.8.0-SNAPSHOT-sources.jar>=
+integrations-api-1.8.0-SNAPSHOT.jar>=
+integrations-api-1.8.0-SNAPSHOT.pom>=

@@ -1,0 +1,160 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "org.purejava",
+    "module": "flatpak-update-portal",
+    "version": "1.1.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.0.0"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 24,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "com.fasterxml.jackson.core",
+          "module": "jackson-databind",
+          "version": {
+            "requires": "2.19.2"
+          }
+        },
+        {
+          "group": "com.github.hypfvieh",
+          "module": "dbus-java-core",
+          "version": {
+            "requires": "5.1.1"
+          }
+        },
+        {
+          "group": "com.github.hypfvieh",
+          "module": "dbus-java-transport-native-unixsocket",
+          "version": {
+            "requires": "5.1.1"
+          }
+        },
+        {
+          "group": "org.slf4j",
+          "module": "slf4j-api",
+          "version": {
+            "requires": "2.0.17"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "flatpak-update-portal-1.1.0.jar",
+          "url": "flatpak-update-portal-1.1.0.jar",
+          "size": 15395,
+          "sha512": "6a4f0927a4eaad1b086c56a9ddfdb9be9d7c0fc77a78eca664bbe7be974c44cf1e8f91cce84e931d35e271b82feecebb5961c833754a80931804ed92a0c2135d",
+          "sha256": "217d4da5ffd9ecfc3c302ad8a6977fb0797153d6113492f38b6f8e5c073354f7",
+          "sha1": "3fefbb0be9abf87f6657ec6843abc1cb42da6973",
+          "md5": "c6c71ea0a2901b82f1dbbba10b310948"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 24,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.fasterxml.jackson.core",
+          "module": "jackson-databind",
+          "version": {
+            "requires": "2.19.2"
+          }
+        },
+        {
+          "group": "com.github.hypfvieh",
+          "module": "dbus-java-core",
+          "version": {
+            "requires": "5.1.1"
+          }
+        },
+        {
+          "group": "com.github.hypfvieh",
+          "module": "dbus-java-transport-native-unixsocket",
+          "version": {
+            "requires": "5.1.1"
+          }
+        },
+        {
+          "group": "org.slf4j",
+          "module": "slf4j-api",
+          "version": {
+            "requires": "2.0.17"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "flatpak-update-portal-1.1.0.jar",
+          "url": "flatpak-update-portal-1.1.0.jar",
+          "size": 15395,
+          "sha512": "6a4f0927a4eaad1b086c56a9ddfdb9be9d7c0fc77a78eca664bbe7be974c44cf1e8f91cce84e931d35e271b82feecebb5961c833754a80931804ed92a0c2135d",
+          "sha256": "217d4da5ffd9ecfc3c302ad8a6977fb0797153d6113492f38b6f8e5c073354f7",
+          "sha1": "3fefbb0be9abf87f6657ec6843abc1cb42da6973",
+          "md5": "c6c71ea0a2901b82f1dbbba10b310948"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "flatpak-update-portal-1.1.0-sources.jar",
+          "url": "flatpak-update-portal-1.1.0-sources.jar",
+          "size": 7919,
+          "sha512": "03671b4a5a236929220738fff2cc77d4cfd0cfc204d0f072daf215096781a27a820dba7066790b0c81dec804f980fc177442110f8e396d8256aa4545ba80a8d2",
+          "sha256": "a6f20c99bb380a72e7c2a1058dd97cc5d8e9c000859edfc24a913fc38c475fdb",
+          "sha1": "4abec1289687effc839e00b87e4090c608e63145",
+          "md5": "aad6eeb143c3de5b6d98ef6409cc654a"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "flatpak-update-portal-1.1.0-javadoc.jar",
+          "url": "flatpak-update-portal-1.1.0-javadoc.jar",
+          "size": 4186213,
+          "sha512": "d09a1127e3f6c37534e20f620a47645a2aaaeaab1f5f7507d67d75b946ad5cc1709ce2aaf5c4d47e0d655ed8ba2a3ce2a95878419b8957c7f32ecb77b982b9d0",
+          "sha256": "f961a4539414d20dcafd7830125db901ea9fc111b131fe05dd1e01c6066713c6",
+          "sha1": "44830426d133a5b75fb76a6bfae38be5573aa89b",
+          "md5": "5fe68e988aa9a223211d9ca00559dee9"
+        }
+      ]
+    }
+  ]
+}

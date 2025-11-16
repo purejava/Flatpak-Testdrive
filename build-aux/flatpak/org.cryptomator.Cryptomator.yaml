@@ -36,6 +36,7 @@ finish-args:
   - --talk-name=org.gnome.keyring
   # Allow to talk to the KDE kwallet daemon
   - --talk-name=org.kde.kwalletd5
+  - --talk-name=org.kde.kwalletd6
   # Needed to talk to the gvfs daemons over D-Bus and list mounts using the GIO APIs
   - --talk-name=org.gtk.vfs.*
   # Allow access to appindicator icons
@@ -80,7 +81,7 @@ modules:
         MAVEN_OPTS: -Dmaven.repo.local=.m2/repository
         JAVA_HOME: jdk
         JMODS_PATH: jmods
-        VERSION: 1.17.1
+        VERSION: 1.17.9
         REVISION_NO: '1'
     build-commands:
       # Setup Java
@@ -97,7 +98,7 @@ modules:
       - $JAVA_HOME/bin/jlink
         --output runtime
         --module-path $JMODS_PATH
-        --add-modules java.base,java.desktop,java.instrument,java.logging,java.naming,java.net.http,java.scripting,java.sql,java.xml,javafx.base,javafx.graphics,javafx.controls,javafx.fxml,jdk.unsupported,jdk.security.auth,jdk.accessibility,jdk.management.jfr,jdk.net,java.compiler
+        --add-modules java.base,java.desktop,java.instrument,java.logging,java.naming,java.net.http,java.scripting,java.sql,java.xml,javafx.base,javafx.graphics,javafx.controls,javafx.fxml,jdk.crypto.ec,jdk.crypto.cryptoki,jdk.unsupported,jdk.security.auth,jdk.accessibility,jdk.management.jfr,jdk.net,java.compiler
         --no-header-files
         --no-man-pages
         --strip-debug
@@ -127,7 +128,7 @@ modules:
         --java-options '-Dcryptomator.p12Path='@{userhome}/.config/Cryptomator/key.p12''
         --java-options '-Dcryptomator.settingsPath='@{userhome}/.config/Cryptomator/settings.json:~/.Cryptomator/settings.json''
         --java-options '-Dcryptomator.showTrayIcon=true'
-        --java-options '-Dcryptomator.disableUpdateCheck=false'
+        --java-options '-Dcryptomator.updateMechanism=org.cryptomator.linux.update.FlatpakUpdater'
         --java-options '-Dcryptomator.networking.truststore.p12Path='/run/host/etc/cryptomator/certs.p12''
         --app-version "${VERSION}.${REVISION_NO}"
         --verbose
@@ -144,57 +145,63 @@ modules:
       - maven-dependencies-x86_64.yaml
       - maven-dependencies-aarch64.yaml
       - type: file
-        path: ./integrations-api/1.7.0-SNAPSHOT/integrations-api-1.7.0-SNAPSHOT.jar
-        dest: .m2/repository/org/cryptomator/integrations-api/1.7.0-SNAPSHOT
-        sha1: 0e4ea343763d9fe56241bc791a560db494e45d3e
+        path: ./integrations-api/1.8.0-SNAPSHOT/integrations-api-1.8.0-SNAPSHOT.jar
+        dest: .m2/repository/org/cryptomator/integrations-api/1.8.0-SNAPSHOT
+        sha1: c5b31685fe71e85dbd04fdfe912d8c2561db1e48
       - type: file
         path: ./integrations-linux/1.7.0-SNAPSHOT/integrations-linux-1.7.0-SNAPSHOT.jar
         dest: .m2/repository/org/cryptomator/integrations-linux/1.7.0-SNAPSHOT
-        sha1: 7aab84960ef1d291fa216cd3b2a4496835a20fae
+        sha1: 302eac6f52a5551e6bcf91823309211e1b80c63d
       - type: file
-        path: ./flatpak-update-portal/1.0.0/flatpak-update-portal-1.0.0.jar
-        dest: .m2/repository/org/purejava/flatpak-update-portal/1.0.0
-        sha1: 488494432accb234b5d94338dbe9e983865db8b2
+        path: ./flatpak-update-portal/1.1.0/flatpak-update-portal-1.1.0.jar
+        dest: .m2/repository/org/purejava/flatpak-update-portal/1.1.0
+        sha1: 3fefbb0be9abf87f6657ec6843abc1cb42da6973
       - type: file
-        path: ./integrations-api/1.7.0-SNAPSHOT/integrations-api-1.7.0-SNAPSHOT.pom
-        dest: .m2/repository/org/cryptomator/integrations-api/1.7.0-SNAPSHOT
-        sha1: 437b5a8edea625c6c69d45689b2f4a7d24970298
+        path: ./integrations-api/1.8.0-SNAPSHOT/integrations-api-1.8.0-SNAPSHOT.pom
+        dest: .m2/repository/org/cryptomator/integrations-api/1.8.0-SNAPSHOT
+        sha1: 77214987d88a67581ab3de670982a50c3548ebb6
       - type: file
         path: ./integrations-linux/1.7.0-SNAPSHOT/integrations-linux-1.7.0-SNAPSHOT.pom
         dest: .m2/repository/org/cryptomator/integrations-linux/1.7.0-SNAPSHOT
-        sha1: 33264192d8e2eb9a16eadfdcb2bae6051bf21ef5
+        sha1: 2d04b71aeddeaf62c8bda0901753453d822246c5
       - type: file
-        path: ./flatpak-update-portal/1.0.0/flatpak-update-portal-1.0.0.pom
-        dest: .m2/repository/org/purejava/flatpak-update-portal/1.0.0
-        sha1: 5f4d523ab58562e56748e7c45f6b3e0d07286689
+        path: ./flatpak-update-portal/1.1.0/flatpak-update-portal-1.1.0.pom
+        dest: .m2/repository/org/purejava/flatpak-update-portal/1.1.0
+        sha1: b9f1defc264f52646394ab817b1c7f70576e8d05
       - type: archive
-        sha512: 8fc45be928d72e7bbdedb65d04f72ef2da94b1607e0d63c1ec0a2dfaa223fffacf098e3e5e43461a9d1d817aeb75e843851a420716d76a557ba969f807533338   #CRYPTOMATOR - COMMENT REQUIRED FOR AUTOMATION
-        path: cryptomator-1.17.1.tar.gz
+        sha512: c4d736ba35aaa47a238ec7f12c9d5deab7f87a3791aba5c378c85790dd0a0e3481a6584096b3a5b09a196bc999fc2ee030735693432f4ab14b8fc1383be8cd7d   #CRYPTOMATOR - COMMENT REQUIRED FOR AUTOMATION
+        path: cryptomator-1.17.9.tar.gz
       - type: file
         dest-filename: jdk.tar.gz
         only-arches:
           - x86_64
-        url: https://github.com/adoptium/temurin24-binaries/releases/download/jdk-24.0.1%2B9/OpenJDK24U-jdk_x64_linux_hotspot_24.0.1_9.tar.gz
-        sha512: c321f009548ff5079e3faeff29bfb7becf39d62fa1469e60b48dbb81067713888cef6236353113338b7d2b581c2ce64ecbc0f67146b299f31ba6c24cd65cd2d7
+        url: https://github.com/adoptium/temurin25-binaries/releases/download/jdk-25%2B36/OpenJDK25U-jdk_x64_linux_hotspot_25_36.tar.gz
+        sha512: 83254b8af4fb9dde568c50716adc6070bf12f2a612d2cdb2c4b1edeabb8b0b5c2b87fadd47532a01f9d16df069e5bca985a4b24bcfd36e34ffa2f5b0c77c9637
       - type: file
         dest-filename: jdk.tar.gz
         only-arches:
           - aarch64
-        url: https://github.com/adoptium/temurin24-binaries/releases/download/jdk-24.0.1%2B9/OpenJDK24U-jdk_aarch64_linux_hotspot_24.0.1_9.tar.gz
-        sha512: 2dcbb59b295ec72dfbc082d0bb70c92dc227bc50ebe45187d9503094e3ced15197fad232c3bd2d57312f1ba040c9a0ce3c4398e4c014cfedbb5eee366b594a79
+        url: https://github.com/adoptium/temurin25-binaries/releases/download/jdk-25%2B36/OpenJDK25U-jdk_aarch64_linux_hotspot_25_36.tar.gz
+        sha512: 787af8846a3af90f0e9a3c1ad91c9b0c9ed6064d7c19cc0fc325516bde4e09a9f25d664af03fdb156b679046cc221e7755fead33087bbcca5fd50d3b393664f7
       - type: file
         dest-filename: openjfx.zip
         only-arches:
           - x86_64
-        url: https://download2.gluonhq.com/openjfx/24.0.1/openjfx-24.0.1_linux-x64_bin-jmods.zip
-        sha512: 727b037bf1cb6d3e1aba92395709eb90893f9c33c5b91d7f091d934ac8eaed23b243d781fd4839fe59adf11aac7d7942679a318c5c695770d4751afe6cf76ab6
+        url: https://download2.gluonhq.com/openjfx/25.0.1/openjfx-25.0.1_linux-x64_bin-jmods.zip
+        sha512: e87d4ab10a50d9ad7a5f99bf7d0118e6e3c788be1c2f0beceb88967fe289e9b8d3647c372681fb11879756df77d2ffce259d0fa7687fb2cad856dea9c51eac0c
       - type: file
         dest-filename: openjfx.zip
         only-arches:
           - aarch64
-        url: https://download2.gluonhq.com/openjfx/24.0.1/openjfx-24.0.1_linux-aarch64_bin-jmods.zip
-        sha512: 330bc3e64f260c687ece19c60095d10bbe3ce2dea6cd67a1e48a972b71c341ffe79a750332918d567393b4f1eede89cd552c144ad39fadcb40d23d1ff9acb79a
+        url: https://download2.gluonhq.com/openjfx/25.0.1/openjfx-25.0.1_linux-aarch64_bin-jmods.zip
+        sha512: 57003b3f02165ef80f2cd1fba16ab0364552debcd4b40f7e868856aedd27a61b2e951110a8a6e051b41a9366d315080bad074a18048babab038949af1b87be08
       - type: file
         dest-filename: maven.tar.gz
-        url: https://dlcdn.apache.org/maven/maven-3/3.9.11/binaries/apache-maven-3.9.11-bin.tar.gz
+        url: https://repo1.maven.org/maven2/org/apache/maven/apache-maven/3.9.11/apache-maven-3.9.11-bin.tar.gz
         sha512: bcfe4fe305c962ace56ac7b5fc7a08b87d5abd8b7e89027ab251069faebee516b0ded8961445d6d91ec1985dfe30f8153268843c89aa392733d1a3ec956c9978
+        x-checker-data:
+          type: anitya
+          project-id: 1894
+          stable-only: true
+          url-template: https://repo1.maven.org/maven2/org/apache/maven/apache-maven/$version/apache-maven-$version-bin.tar.gz
+          versions: {<: '4.0'}
