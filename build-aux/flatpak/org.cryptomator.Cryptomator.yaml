@@ -81,7 +81,7 @@ modules:
         MAVEN_OPTS: -Dmaven.repo.local=.m2/repository
         JAVA_HOME: jdk
         JMODS_PATH: jmods
-        VERSION: 1.18.0
+        VERSION: 1.19.0-alpha2
         REVISION_NO: '1'
     build-commands:
       # Setup Java
@@ -145,32 +145,16 @@ modules:
       - maven-dependencies-x86_64.yaml
       - maven-dependencies-aarch64.yaml
       - type: file
-        path: ./integrations-api/1.8.0-SNAPSHOT/integrations-api-1.8.0-SNAPSHOT.jar
-        dest: .m2/repository/org/cryptomator/integrations-api/1.8.0-SNAPSHOT
-        sha1: c5b31685fe71e85dbd04fdfe912d8c2561db1e48
+        path: ./integrations-linux/1.8.0-SNAPSHOT/integrations-linux-1.8.0-SNAPSHOT.jar
+        dest: .m2/repository/org/cryptomator/integrations-linux/1.8.0-SNAPSHOT
+        sha1: 949b77f53d546b2133455f7cd9e333102e3c09b6
       - type: file
-        path: ./integrations-linux/1.7.0-SNAPSHOT/integrations-linux-1.7.0-SNAPSHOT.jar
-        dest: .m2/repository/org/cryptomator/integrations-linux/1.7.0-SNAPSHOT
-        sha1: 302eac6f52a5551e6bcf91823309211e1b80c63d
-      - type: file
-        path: ./flatpak-update-portal/1.1.0/flatpak-update-portal-1.1.0.jar
-        dest: .m2/repository/org/purejava/flatpak-update-portal/1.1.0
-        sha1: 3fefbb0be9abf87f6657ec6843abc1cb42da6973
-      - type: file
-        path: ./integrations-api/1.8.0-SNAPSHOT/integrations-api-1.8.0-SNAPSHOT.pom
-        dest: .m2/repository/org/cryptomator/integrations-api/1.8.0-SNAPSHOT
-        sha1: 77214987d88a67581ab3de670982a50c3548ebb6
-      - type: file
-        path: ./integrations-linux/1.7.0-SNAPSHOT/integrations-linux-1.7.0-SNAPSHOT.pom
-        dest: .m2/repository/org/cryptomator/integrations-linux/1.7.0-SNAPSHOT
-        sha1: 2d04b71aeddeaf62c8bda0901753453d822246c5
-      - type: file
-        path: ./flatpak-update-portal/1.1.0/flatpak-update-portal-1.1.0.pom
-        dest: .m2/repository/org/purejava/flatpak-update-portal/1.1.0
-        sha1: b9f1defc264f52646394ab817b1c7f70576e8d05
+        path: ./integrations-linux/1.8.0-SNAPSHOT/integrations-linux-1.8.0-SNAPSHOT.pom
+        dest: .m2/repository/org/cryptomator/integrations-linux/1.8.0-SNAPSHOT
+        sha1: 87cb4a979bc60574901b11cd5b408c2caec4f983
       - type: archive
-        sha512: 98f64a1e10c7963d706624f63dfa0fac914d57582794eafc105fd117a6b88a0519ebe8f2890a04f587d9a783089924489753735ba2c37b9c5b7b9a1efa432866   #CRYPTOMATOR - COMMENT REQUIRED FOR AUTOMATION
-        path: cryptomator-1.18.0.tar.gz
+        sha512: cba519f3e0c1f70c76d008408f061c12235ff06ac22ea60ce69ac2558e9f3db4725c2d317b388cc72d69eaf6e77e590747e96bcd7c14ecaffd0d2117f73b041c   #CRYPTOMATOR - COMMENT REQUIRED FOR AUTOMATION
+        path: cryptomator-1.19.0-alpha2.tar.gz
       - type: file
         dest-filename: jdk.tar.gz
         only-arches:

@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.cryptomator</groupId>
+	<artifactId>integrations-linux</artifactId>
+	<version>1.8.0-SNAPSHOT</version>
+
+	<name>integrations-linux</name>
+	<description>Provides optional Linux services used by Cryptomator</description>
+	<url>http://www.cryptomator.org</url>
+	<scm>
+		<connection>scm:git:git@github.com:cryptomator/integrations-linux.git</connection>
+		<developerConnection>scm:git:git@github.com:cryptomator/integrations-linux.git</developerConnection>
+		<url>git@github.com:cryptomator/integrations-linux.git</url>
+	</scm>
+
+	<developers>
+		<developer>
+			<name>Armin Schrenk</name>
+			<email>armin.schrenk@skymatic.de</email>
+			<timezone>+1</timezone>
+			<organization>Skymatic GmbH</organization>
+			<organizationUrl>http://skymatic.de</organizationUrl>
+		</developer>
+	</developers>
+
+	<licenses>
+		<license>
+			<name>GNU Affero General Public License (AGPL) version 3.0</name>
+			<url>https://www.gnu.org/licenses/agpl.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.jdk.version>25</project.jdk.version>
+
+		<!-- runtime dependencies -->
+		<api.version>1.8.0-beta1</api.version>
+		<slf4j.version>2.0.17</slf4j.version>
+		<jackson.version>2.20.1</jackson.version>
+		<secret-service.version>2.0.1-alpha</secret-service.version>
+		<kdewallet.version>1.4.0</kdewallet.version>
+		<flatpakupdateportal.version>1.1.1</flatpakupdateportal.version>
+		<appindicator.version>1.4.2</appindicator.version>
+
+		<!-- test dependencies -->
+		<junit.version>6.0.1</junit.version>
+
+		<!-- build plugin dependencies -->
+		<mvn-compiler.version>3.14.1</mvn-compiler.version>
+		<mvn-surefire.version>3.5.4</mvn-surefire.version>
+		<mvn-enforcer.version>3.6.2</mvn-enforcer.version>
+		<mvn-source.version>3.4.0</mvn-source.version>
+		<mvn-javadoc.version>3.12.0</mvn-javadoc.version>
+		<mvn-gpg.version>3.2.8</mvn-gpg.version>
+		<mvn-deploy.version>3.1.4</mvn-deploy.version>
+		<dependency-check.version>12.1.9</dependency-check.version>
+		<central-publishing.version>0.9.0</central-publishing.version>
+	</properties>
+
+	<repositories>
+		<repository>
+			<name>Central Portal Snapshots</name>
+			<id>central-portal-snapshots</id>
+			<url>https://central.sonatype.com/repository/maven-snapshots/</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.cryptomator</groupId>
+			<artifactId>integrations-api</artifactId>
+			<version>${api.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>de.swiesend</groupId>
+			<artifactId>secret-service</artifactId>
+			<version>${secret-service.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.purejava</groupId>
+			<artifactId>kdewallet</artifactId>
+			<version>${kdewallet.version}</version>
+		</dependency>
+		<!-- Java bindings for appindicator -->
+		<dependency>
+			<groupId>org.purejava</groupId>
+			<artifactId>libappindicator-gtk3-java-minimal</artifactId>
+			<version>${appindicator.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.purejava</groupId>
+			<artifactId>flatpak-update-portal</artifactId>
+			<version>${flatpakupdateportal.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${mvn-compiler.version}</version>
+				<configuration>
+					<release>${project.jdk.version}</release>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${mvn-surefire.version}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<version>${mvn-enforcer.version}</version>
+				<executions>
+					<execution>
+						<id>check-preconditions</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<requireOS>
+									<family>unix</family>
+									<name>Linux</name>
+									<message>This build configuration requires Linux.</message>
+								</requireOS>
+							</rules>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>${mvn-source.version}</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>${mvn-javadoc.version}</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<quiet>true</quiet>
+					<release>${project.jdk.version}</release>
+					<tags>
+						<!-- workaround for "unknown tag: implNote", see https://blog.codefx.org/java/new-javadoc-tags/#Maven  -->
+						<tag>
+							<name>apiNote</name>
+							<placement>a</placement>
+							<head>API Note:</head>
+						</tag>
+						<tag>
+							<name>implSpec</name>
+							<placement>a</placement>
+							<head>Implementation Requirements:</head>
+						</tag>
+						<tag>
+							<name>implNote</name>
+							<placement>a</placement>
+							<head>Implementation Note:</head>
+						</tag>
+						<tag>
+							<name>param</name>
+						</tag>
+						<tag>
+							<name>return</name>
+						</tag>
+						<tag>
+							<name>throws</name>
+						</tag>
+						<tag>
+							<name>since</name>
+						</tag>
+						<tag>
+							<name>version</name>
+						</tag>
+						<tag>
+							<name>serialData</name>
+						</tag>
+						<tag>
+							<name>see</name>
+						</tag>
+					</tags>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+
+	<profiles>
+		<profile>
+			<id>dependency-check</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.owasp</groupId>
+						<artifactId>dependency-check-maven</artifactId>
+						<version>${dependency-check.version}</version>
+						<configuration>
+							<nvdValidForHours>24</nvdValidForHours>
+							<failBuildOnCVSS>0</failBuildOnCVSS>
+							<skipTestScope>true</skipTestScope>
+							<detail>true</detail>
+							<suppressionFile>suppression.xml</suppressionFile>
+							<nvdApiKeyEnvironmentVariable>NVD_API_KEY</nvdApiKeyEnvironmentVariable>
+						</configuration>
+						<executions>
+							<execution>
+								<goals>
+									<goal>check</goal>
+								</goals>
+								<phase>validate</phase>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
+			<id>sign</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>${mvn-gpg.version}</version>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+								<configuration>
+									<signer>bc</signer>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
+			<id>deploy-central</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.sonatype.central</groupId>
+						<artifactId>central-publishing-maven-plugin</artifactId>
+						<version>${central-publishing.version}</version>
+						<extensions>true</extensions>
+						<configuration>
+							<publishingServerId>central</publishingServerId>
+ 							<autoPublish>true</autoPublish>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
+			<id>deploy-github</id>
+			<distributionManagement>
+				<repository>
+					<id>github</id>
+					<name>GitHub Packages</name>
+					<url>https://maven.pkg.github.com/cryptomator/integrations-linux</url>
+				</repository>
+			</distributionManagement>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-deploy-plugin</artifactId>
+						<version>${mvn-deploy.version}</version>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>
