@@ -81,7 +81,7 @@ modules:
         MAVEN_OPTS: -Dmaven.repo.local=.m2/repository
         JAVA_HOME: jdk
         JMODS_PATH: jmods
-        VERSION: 1.17.0
+        VERSION: 1.18.0
         REVISION_NO: '1'
     build-commands:
       # Setup Java
@@ -153,8 +153,8 @@ modules:
         dest: .m2/repository/org/cryptomator/integrations-linux/1.8.0-SNAPSHOT
         sha1: 87cb4a979bc60574901b11cd5b408c2caec4f983
       - type: archive
-        sha512: e664337a37cd34c023757e3763d156cd70dae368b61ebb4efa04a23daafc20a8ba50443e71e8ab7f082d5c166d730abd586bca6ef9ecede85e921e3ebd85d84b   #CRYPTOMATOR - COMMENT REQUIRED FOR AUTOMATION
-        path: cryptomator-1.17.0.tar.gz
+        sha512: 44ab86053466aabe0b9fcf4fd1104fb967ffd4f43687c93725efa1ddca1f9e65d37198a3bd233892d77e6734cc387510f2642e8da3b1244c57e43556476923e4   #CRYPTOMATOR - COMMENT REQUIRED FOR AUTOMATION
+        path: cryptomator-1.18.0.tar.gz
       - type: file
         dest-filename: jdk.tar.gz
         only-arches:
