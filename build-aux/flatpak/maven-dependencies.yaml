@@ -2135,14 +2135,6 @@
   url: https://repo.maven.apache.org/maven2/org/cryptomator/integrations-api/1.8.0-beta1/integrations-api-1.8.0-beta1.pom
   sha256: 8d9c574629d66fc3e3ba2cdea4b55048b7b24d0f07b414af725a8e66611fe47b
 - type: file
-  dest: .m2/repository/org/cryptomator/integrations-linux/1.8.0-SNAPSHOT
-  url: https://repo.maven.apache.org/maven2/org/cryptomator/integrations-linux/1.8.0-SNAPSHOT/integrations-linux-1.8.0-SNAPSHOT.jar
-  sha256: 7fee4673853bb49423906fd47153f6132764e8bdd9cba7f68d49647e80ded27f
-- type: file
-  dest: .m2/repository/org/cryptomator/integrations-linux/1.8.0-SNAPSHOT
-  url: https://repo.maven.apache.org/maven2/org/cryptomator/integrations-linux/1.8.0-SNAPSHOT/integrations-linux-1.8.0-SNAPSHOT.pom
-  sha256: 3e90a5d2d4f166948dd5a2076bfb413332902e3942f05739af50f07060f8c0f1
-- type: file
   dest: .m2/repository/org/cryptomator/jfuse/0.7.3
   url: https://repo.maven.apache.org/maven2/org/cryptomator/jfuse/0.7.3/jfuse-0.7.3.jar
   sha256: dd2a86913383de9ddcc737f813ef712f0e5157964107a6f77ab88e540fc2f72e
